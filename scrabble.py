@@ -14,7 +14,7 @@ def main():
 
     # create the master screen of size 600 X 600
     # currently includes only scrabble board but will increase later
-    screen = pygame.display.set_mode((600,600))    
+    screen = pygame.display.set_mode((800,800))    
      
     # create the object for the scrabble board and draw it
     scrabble_board = boards.ScrabbleBoard(screen)
@@ -38,11 +38,21 @@ def main():
             #
             if event.type == pygame.MOUSEBUTTONDOWN:
                 # get position
-                print(event.pos, event.button)
-            
+                print(event.pos)
+                if (scrabble_board.is_point_in_bounds(event.pos)):
+                    print("In Scrabble Board")
+                    print(scrabble_board.get_square(event.pos))
+                else:
+                    print("Outside Scrabble Board")
+                    
             if event.type == pygame.MOUSEBUTTONUP:
                 # get position
-                print(event.pos, event.button)
+                print(event.pos)
+                if (scrabble_board.is_point_in_bounds(event.pos)):
+                    print("In Scrabble Board")
+                    print(scrabble_board.get_square(event.pos))
+                else:
+                    print("Outside Scrabble Board")
     
 if __name__=="__main__":
     # call the main function
